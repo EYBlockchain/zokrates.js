@@ -5,7 +5,7 @@ FROM node:12 as builder
 ARG NPM_TOKEN
 RUN mkdir /app
 WORKDIR /app
-COPY ./package.json ./package-lock.json ./.babelrc ./.npmrc ./
+COPY ./package.json ./package-lock.json ./.babelrc ./
 RUN npm ci
 COPY ./src ./src
 COPY ./contracts/test ./contracts/test
@@ -18,7 +18,7 @@ RUN npm run build
 FROM ajmay/truffle:5.0.9 as truffle-builder
 ARG NPM_TOKEN
 COPY ./contracts ./contracts
-COPY ./truffle/package.json ./truffle/package-lock.json ./.npmrc ./
+COPY ./truffle/package.json ./truffle/package-lock.json
 ENV SOLC_VERSION ^0.5.5
 RUN npm ci
 RUN truffle compile --all
@@ -39,7 +39,7 @@ FROM node:12 as prod-dependencies
 ARG NPM_TOKEN
 RUN mkdir /app
 WORKDIR /app
-COPY ./package.json ./package-lock.json ./.npmrc ./
+COPY ./package.json ./package-lock.json ./
 RUN npm ci --only=prod
 
 # production image stage

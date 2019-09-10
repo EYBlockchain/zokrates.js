@@ -15,10 +15,6 @@ services:
       - ./package.json:/app/package.json:delegated
     depends_on:
       - api-watch
-      - mongo
-      - ganache
-      - organization-api
-      - authentication-api
     environment:
       VIRTUAL_HOST: zokrates-api.docker
 
