@@ -1,12 +1,5 @@
-truffle-compile:
-	docker-compose run --rm truffle compile --all
+compile-test:
+	docker-compose exec library node ./lib/__test__/compile
 
-truffle-test:
-	docker-compose run --rm truffle test contracts/test/*.js
-
-truffle-clean:
-	rm ./truffle/build/contracts/*
-
-api-test:
-	# --verbose displays individual tests being run. --silent suppress console logs/errors
-	docker-compose run --rm api npm test
+setup-test:
+	docker-compose exec library node ./lib/__test__/setup
