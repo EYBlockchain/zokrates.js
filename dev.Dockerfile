@@ -1,19 +1,10 @@
+FROM zokrates/zokrates:0.4.11 as builder
+
+# Actual application (for testing purposes)
 FROM node:12
-
-ARG NPM_TOKEN
-
 RUN mkdir /app
 WORKDIR /app
-
 COPY ./package.json ./package-lock.json ./
-RUN npm ci
-
-# prevent auth failures when running npm run scripts
-# file only necessary for above `npm ci` command
-
-RUN curl -LSfs get.zokrat.es | sh
-
-COPY ./jest.config.js ./jest.setup.js ./.babelrc ./
-
-EXPOSE 80
-CMD ["npm", "start"]
+COPY --from=builder /home/zokrates/zokrates /app/zokrates
+COPY --from=builder /home/zokrates/.zokrates* /app/stdlib
+RUN npm install

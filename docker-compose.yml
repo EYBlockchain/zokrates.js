@@ -1,45 +1,12 @@
 version: '3'
 
 services:
-  api:
+  library:
     build:
       context: ./
       dockerfile: dev.Dockerfile
-      args:
-        - NPM_TOKEN
-    command: ['npm', 'run', 'dev']
     restart: on-failure
     volumes:
-      - ./build:/app/build:delegated
-      - ./config:/app/config:delegated
-      - ./package.json:/app/package.json:delegated
-    depends_on:
-      - api-watch
-    environment:
-      VIRTUAL_HOST: zokrates-api.docker
-
-  api-watch:
-    build:
-      context: ./
-      dockerfile: dev.Dockerfile
-      args:
-        - NPM_TOKEN
-    command: ['npm', 'run', 'watch']
-    volumes:
-      - ./src:/app/src:delegated
-      - ./build:/app/build:delegated
-    logging:
-      options:
-        max-size: 10m
-
-  docs:
-    image: codfish/swagger
-    command: ['npm', 'run', 'dev']
-    volumes:
-      - ./swagger.yaml:/app/swagger.yaml:delegated
-    environment:
-      VIRTUAL_HOST: docs.zokrates-api.docker
-
-volumes:
-  ganache-volume: {}
-  org-config-volume: {}
+      - ./lib:/app/lib:delegated
+      - ./code:/app/code:delegated
+    command: tail -F /dev/null
