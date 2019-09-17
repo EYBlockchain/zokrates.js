@@ -1,9 +1,8 @@
 {
-  "name": "zokrates-api",
+  "name": "@eyblockchain/zokrates.js",
   "description": "y",
   "license": "MIT",
   "version": "0.0.0",
-  "private": true,
   "scripts": {
     "start": "node build/index.js",
     "dev": "nodemon build/index.js",
@@ -19,13 +18,8 @@
     "lint:sol": "solium -d contracts"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
     "@commitlint/cli": "^7.6.1",
     "@commitlint/config-conventional": "^7.6.0",
-    "babel-jest": "^24.9.0",
     "eslint": "^5.15.2",
     "eslint-config-codfish": "^2.5.0",
     "ethlint": "^1.2.4",
@@ -37,17 +31,14 @@
     "nodemon": "^1.19.2",
     "prettier": "^1.16.4",
     "prettier-plugin-solidity": "^1.0.0-alpha.24",
-    "react-test-renderer": "^16.9.0",
     "supertest": "^3.4.2"
   },
   "dependencies": {
-    "body-parser": "^1.19.0",
     "config": "^3.2.2",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "express-validation": "^1.0.2",
-    "joi": "^14.3.1",
-    "lodash": "^4.17.15",
-    "mongodb": "^3.3.2"
+    "lodash": "^4.17.15"
+  },
+  "publishConfig": {
+    "registry": "https://registry.ey.npme.io/",
+    "access": "public"
   }
 }
