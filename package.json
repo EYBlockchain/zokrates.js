@@ -3,6 +3,10 @@
   "description": "y",
   "license": "MIT",
   "version": "0.0.0",
+  "main": "index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "start": "node build/index.js",
     "dev": "nodemon build/index.js",
