@@ -7,4 +7,4 @@ WORKDIR /app
 COPY ./package.json ./package-lock.json ./
 COPY --from=builder /home/zokrates/zokrates /app/zokrates
 COPY --from=builder /home/zokrates/.zokrates* /app/stdlib
-RUN npm install
+RUN npm ci
