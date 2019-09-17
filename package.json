@@ -8,41 +8,34 @@
     "lib"
   ],
   "scripts": {
-    "start": "node build/index.js",
-    "dev": "nodemon build/index.js",
-    "build": "babel src -d build --copy-files",
-    "watch": "babel src -d build --copy-files --watch",
-    "test": "jest /compile.test.js",
-    "test:ci": "jest --verbose=true --silent --ci --coverage",
-    "fix": "npm run format && npm run lint -- --fix && solium -d contracts",
-    "format": "prettier --write \"**/*.{json,css,scss,md,html,sol}\"",
-    "lint": "eslint .",
-    "lint:md": "markdownlint -i node_modules -i build .",
-    "validate": "npm run lint && npm run lint:md && npm run lint:sol",
-    "lint:sol": "solium -d contracts"
+    "build": "cod-scripts build",
+    "build:watch": "npm run build -- --watch",
+    "format": "cod-scripts format",
+    "lint": "cod-scripts lint",
+    "lint:md": "markdownlint -i node_modules -i dist .",
+    "test": "cod-scripts test",
+    "validate": "cod-scripts validate"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.6.1",
     "@commitlint/config-conventional": "^7.6.0",
-    "eslint": "^5.15.2",
-    "eslint-config-codfish": "^2.5.0",
-    "ethlint": "^1.2.4",
-    "faker": "github:Marak/faker.js",
-    "husky": "^1.3.1",
-    "jest": "^24.9.0",
-    "lint-staged": "^8.2.1",
-    "markdownlint-cli": "^0.18.0",
-    "nodemon": "^1.19.2",
-    "prettier": "^1.16.4",
-    "prettier-plugin-solidity": "^1.0.0-alpha.24",
-    "supertest": "^3.4.2"
+    "cod-scripts": "^1.1.0",
+    "markdownlint-cli": "^0.18.0"
   },
-  "dependencies": {
-    "config": "^3.2.2",
-    "lodash": "^4.17.15"
-  },
+  "dependencies": {},
   "publishConfig": {
     "registry": "https://registry.ey.npme.io/",
     "access": "public"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/cod-scripts/eslint.js"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "cod-scripts pre-commit",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
