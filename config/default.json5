@@ -1,7 +1,0 @@
-{
-  offchainDbUrl: 'mongodb://mongo:27017',
-  offchainDbName: 'zokrates',
-  rpcProvider: 'http://ganache:8545',
-  authenticationUrl: 'http://authentication-api',
-  organizationUrl: 'http://organization-api',
-}
