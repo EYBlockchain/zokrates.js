@@ -13,13 +13,14 @@
     "format": "cod-scripts format",
     "lint": "cod-scripts lint",
     "lint:md": "markdownlint -i node_modules -i dist .",
-    "test": "cod-scripts test",
+    "test": "docker-compose run library jest",
     "validate": "cod-scripts validate"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.6.1",
     "@commitlint/config-conventional": "^7.6.0",
     "cod-scripts": "^1.1.0",
+    "jest": "^24.9.0",
     "markdownlint-cli": "^0.18.0"
   },
   "dependencies": {},

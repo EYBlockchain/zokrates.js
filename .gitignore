@@ -73,6 +73,10 @@ dist
 # testing
 /coverage
 
+#ignore all test files except test.code
+code/*
+!code/test.code
+
 .organizationrc.json
 docker-compose.override.yml
 config/local.json5
