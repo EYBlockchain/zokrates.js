@@ -1,7 +1,6 @@
 # zokrates-api
 
-This is a Node.js wrapper around [ZoKrates](https://github.com/Zokrates). It's primarily meant to be
-used on EY's [Nightfall-SDK](https://github.com/eyblockchain/nightfall-sdk).
+This is a Node.js wrapper around [ZoKrates](https://github.com/Zokrates).
 
 ## Instructions
 
