@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          version: 10.x
+          node-version: 10.x
           registry-url: https://registry.ey.npme.io
 
       - name: Validate
