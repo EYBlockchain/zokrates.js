@@ -1,5 +1,5 @@
 {
-  "name": "@eyblockchain/zokrates.js",
+  "name": "zokrates.js",
   "description": "y",
   "license": "MIT",
   "version": "0.0.0",
@@ -25,7 +25,7 @@
   },
   "dependencies": {},
   "publishConfig": {
-    "registry": "https://registry.ey.npme.io/",
+    "registry": "http://registry.npmjs.org/",
     "access": "public"
   },
   "eslintConfig": {

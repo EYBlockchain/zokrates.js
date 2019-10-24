@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-          registry-url: https://registry.ey.npme.io
+          registry-url: http://registry.npmjs.org/
 
       - run: npm install --no-save
         env:
