@@ -1,6 +1,9 @@
 name: Validate Code
 
-on: push
+on:
+  push:
+    branches-ignore:
+      - 'master'
 
 jobs:
   validate:
@@ -12,24 +15,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-          registry-url: http://registry.npmjs.org/
-
       - run: npm install --no-save
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - run: npm run lint
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - run: npm run lint:md
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - run: npm run test
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

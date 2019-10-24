@@ -17,9 +17,7 @@
     "validate": "cod-scripts validate"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.6.1",
-    "@commitlint/config-conventional": "^7.6.0",
-    "cod-scripts": "^1.1.0",
+    "cod-scripts": "^3.2.0",
     "jest": "^24.9.0",
     "markdownlint-cli": "^0.18.0"
   },
@@ -36,7 +34,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "cod-scripts pre-commit",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "cod-scripts commitlint -E HUSKY_GIT_PARAMS"
     }
   }
 }
