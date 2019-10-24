@@ -19,12 +19,10 @@ jobs:
           node-version: 10.x
           registry-url: http://registry.npmjs.org/
 
-      - name: Validate
+      - name: validate before release
         run: |
           npm install --no-save
           npm run lint
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: semantic release
         uses: codfish/semantic-release-action@v1
