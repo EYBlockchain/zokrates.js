@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 10.x
           registry-url: http://registry.npmjs.org/
 
       - name: validate before release
@@ -25,7 +25,7 @@ jobs:
           npm run lint
 
       - name: semantic release
-        uses: codfish/semantic-release-action@v1
+        uses: codfish/semantic-release-action@v1.2.1
         id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
