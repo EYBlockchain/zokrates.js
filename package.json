@@ -14,7 +14,7 @@
     "format": "cod-scripts format",
     "lint": "cod-scripts lint",
     "lint:md": "markdownlint -i node_modules -i dist .",
-    "test": "docker-compose run library jest",
+    "test": "docker-compose run library jest --runInBand",
     "validate": "cod-scripts validate"
   },
   "devDependencies": {
