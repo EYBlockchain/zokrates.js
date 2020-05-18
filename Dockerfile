@@ -1,8 +1,8 @@
-ARG NPM_TOKEN
+ARG GPR_TOKEN
 
 # build & code linting stage
 FROM node:12 as builder
-ARG NPM_TOKEN
+ARG GPR_TOKEN
 RUN mkdir /app
 WORKDIR /app
 COPY ./package.json ./package-lock.json ./.babelrc ./
@@ -16,7 +16,7 @@ RUN npm run build
 
 # truffle build stage
 FROM ajmay/truffle:5.0.9 as truffle-builder
-ARG NPM_TOKEN
+ARG GPR_TOKEN
 COPY ./contracts ./contracts
 COPY ./truffle/package.json ./truffle/package-lock.json
 ENV SOLC_VERSION ^0.5.5
@@ -25,7 +25,7 @@ RUN truffle compile --all
 
 # api testing stage
 FROM node:12
-ARG NPM_TOKEN
+ARG GPR_TOKEN
 RUN mkdir /app
 WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules
@@ -36,7 +36,7 @@ RUN npm run test:ci
 
 # install production dependencies. separate step to protect env secrets
 FROM node:12 as prod-dependencies
-ARG NPM_TOKEN
+ARG GPR_TOKEN
 RUN mkdir /app
 WORKDIR /app
 COPY ./package.json ./package-lock.json ./

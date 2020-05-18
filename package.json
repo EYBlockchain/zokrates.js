@@ -4,7 +4,7 @@
   "license": "PUBLIC DOMAIN",
   "version": "0.0.0-semantically-released",
   "main": "index.js",
-  "repository": "https://github.com/EYBlockchain/zokrates.js.git",
+  "repository": "git://github.com/EYBlockchain/zokrates.js.git",
   "files": [
     "lib"
   ],
@@ -24,7 +24,7 @@
   },
   "dependencies": {},
   "publishConfig": {
-    "registry": "http://registry.npmjs.org/",
+    "registry": "http://npm.pkg.github.com/",
     "access": "public"
   },
   "eslintConfig": {
